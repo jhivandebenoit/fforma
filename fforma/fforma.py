@@ -37,8 +37,7 @@ class FFORMA:
         ** References: **
         <https://robjhyndman.com/publications/fforma/>
         """
-        self.dict_obj = {'FFORMA': (self.fforma_objective, self.fforma_loss),
-                         'FFORMADL': (self.fformadl_objective, self.fformadl_loss)}
+        self.dict_obj = {'FFORMA': (self.fforma_objective, self.fforma_loss)}
 
         fobj, feval = self.dict_obj.get(objective, (None, None))
         self.objective, self.greedy_search = objective, greedy_search
@@ -237,6 +236,7 @@ class FFORMA:
             name = 'fforms_prediction'
         else:
             weights = self.weights_
+            print(weights)
             name = 'fforma_prediction'
         fforma_preds = weights * y_hat_df
         fforma_preds = fforma_preds.sum(axis=1)
@@ -244,3 +244,8 @@ class FFORMA:
         preds = pd.concat([y_hat_df, fforma_preds], axis=1)
 
         return preds
+
+    def new_weights(self,row):
+            raw_score = self.lgb.predict(row, raw_score=True)
+            softmax_score = softmax(raw_score, axis=1)
+            return softmax_score
