@@ -1,7 +1,7 @@
 arch==4.11
 cycler==0.10.0
 Cython==0.29.19
-ESRNN==0.1.2
+ESRNN
 future==0.18.2
 joblib==0.15.1
 kiwisolver==1.2.0
@@ -11,7 +11,6 @@ matplotlib==3.2.1
 more-itertools==6.0.0
 numba==0.49.1
 numpy==1.16.1
-pandas==0.25.2
 patsy==0.5.1
 property-cached==1.6.4
 pyparsing==2.4.7
@@ -27,4 +26,4 @@ supersmoother==0.4
 threadpoolctl==2.1.0
 tqdm==4.46.0
 rpy2==3.3.3
-git+https://github.com/FedericoGarza/tsfeatures
+tsfeatures
