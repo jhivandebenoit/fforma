@@ -50,7 +50,7 @@ def prepare_to_train_fforma(dataset, validation_periods, seasonality):
     meta_models = MetaModels(meta_models)
     meta_models.fit(y_train_df)
 
-    predictions = meta_models.predict(y_test_df[['unique_id', 'ds']]))
+    predictions = meta_models.predict(y_test_df[['unique_id', 'ds']])
 
     return errors, features, predictions
 
