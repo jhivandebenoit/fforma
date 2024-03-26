@@ -134,7 +134,7 @@ Untitle*.ipynb
 
 #files
 *.csv
-*.ipynb
+
 .R*
 hyperpar_tunning_*
 data
