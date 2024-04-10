@@ -88,6 +88,7 @@ class FFORMA:
         return feats, holdout_feats
 
     # Objective function for lgb
+    #  From <https://robjhyndman.com/publications/fforma/>
     def fforma_objective(self, predt: np.ndarray, dtrain) -> (np.ndarray, np.ndarray):
         '''
         Compute...

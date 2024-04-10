@@ -24,7 +24,7 @@ from tsfeatures import tsfeatures
 
 def prepare_to_train_fforma(dataset, validation_periods, seasonality):
 
-    X_train_df, y_train_df, X_test_df, y_test_df = prepare_m4_data(dataset, './data', 100)
+    X_train_df, y_train_df, X_test_df, y_test_df = prepare_m4_data(dataset, './data/m4', 100)
 
     # Preparing errors
     y_holdout_train_df, y_val_df = temp_holdout(y_train_df, validation_periods)
@@ -37,7 +37,7 @@ def prepare_to_train_fforma(dataset, validation_periods, seasonality):
         'Naive2': Naive2(seasonality=seasonality)
     }
     validation_meta_models = MetaModels(meta_models)
-    validation_meta_models.fit(train)
+    validation_meta_models.fit(X_train_df)
     prediction_validation_meta_models = validation_meta_models.predict(y_val_df)
 
     #Calculating errors
